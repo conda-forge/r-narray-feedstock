@@ -1,4 +1,4 @@
-{% set version = '0.4.0' %}
+{% set version = "0.4.1" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 {% set cran_mirror = 'https://cran.r-project.org' %}
@@ -12,7 +12,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/narray_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/narray/narray_{{ version }}.tar.gz
-  sha256: bbe3493f5a7b47c64c95fa6f352c8c13efd7f1eec084b417983d5f8e2bf22033
+  sha256: 3e38bcb23037b4287a82f7a14de99d315b01ff7808ef3a0baac13f31a106c526
 
 build:
   merge_build_host: True  # [win]
