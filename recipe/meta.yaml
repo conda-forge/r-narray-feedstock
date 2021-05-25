@@ -7,7 +7,6 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: narray_{{ version }}.tar.gz
   url:
     - {{ cran_mirror }}/src/contrib/narray_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/narray/narray_{{ version }}.tar.gz
@@ -40,7 +39,7 @@ test:
 
 about:
   home: https://github.com/mschubert/narray
-  license: Apache 2.0
+  license: Apache-2.0
   summary: Stacking arrays according to dimension names, subset-aware splitting and mapping of functions, intersecting along arbitrary dimensions, converting to and from data.frames, and many other helper functions.
   license_family: APACHE
   license_file: {{ environ["RECIPE_DIR"] }}/LICENSE
@@ -49,9 +48,3 @@ extra:
   recipe-maintainers:
     - conda-forge/r
     - nick-youngblut
-    - johanneskoester
-    - bgruening
-    - daler
-    - jdblischak
-    - cbrueffer
-    - dbast
