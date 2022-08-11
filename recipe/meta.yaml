@@ -1,4 +1,4 @@
-{% set version = "0.4.1.1" %}
+{% set version = "0.5.0" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/narray_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/narray/narray_{{ version }}.tar.gz
-  sha256: e94f2b5f496c1d90f86d0fbbef0e5a0b9a01be49306597cae965c239b6b1def7
+  sha256: 9d69a65d9d1c0bffe696b37df0d532b096bb91447c440baa41f62d0e8196a12e
 
 build:
   noarch: generic
