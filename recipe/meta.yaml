@@ -1,4 +1,4 @@
-{% set version = "0.4.1.1" %}
+{% set version = "0.5.0" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,10 +10,9 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/narray_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/narray/narray_{{ version }}.tar.gz
-  sha256: e94f2b5f496c1d90f86d0fbbef0e5a0b9a01be49306597cae965c239b6b1def7
+  sha256: 9d69a65d9d1c0bffe696b37df0d532b096bb91447c440baa41f62d0e8196a12e
 
 build:
-  noarch: generic
   merge_build_host: true  # [win]
   number: 0
   rpaths:
@@ -22,13 +21,25 @@ build:
 
 requirements:
   build:
+    - {{ compiler('c') }}              # [not win]
+    - {{ compiler('m2w64_c') }}        # [win]
+    - {{ compiler('cxx') }}            # [not win]
+    - {{ compiler('m2w64_cxx') }}      # [win]
+    - {{ posix }}filesystem        # [win]
+    - {{ posix }}make
+    - {{ posix }}sed               # [win]
+    - {{ posix }}coreutils         # [win]
     - {{ posix }}zip               # [win]
+    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
   host:
     - r-base
+    - r-rcpp
     - r-progress
     - r-stringr
   run:
     - r-base
+    - {{ native }}gcc-libs         # [win]
+    - r-rcpp
     - r-progress
     - r-stringr
 
@@ -42,7 +53,8 @@ about:
   license: Apache-2.0
   summary: Stacking arrays according to dimension names, subset-aware splitting and mapping of functions, intersecting along arbitrary dimensions, converting to and from data.frames, and many other helper functions.
   license_family: APACHE
-  license_file: {{ environ["RECIPE_DIR"] }}/LICENSE
+  license_file:
+    - LICENSE
 
 extra:
   recipe-maintainers:
