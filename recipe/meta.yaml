@@ -12,7 +12,7 @@ source:
   sha256: 741cfc5e127e19590d5eafabe5b17ee75c5ffa4216f0357a61412d22a80bfd6e
 
 build:
-  number: 3
+  number: 4
   rpaths:
     - lib/R/lib/
     - lib/
@@ -31,6 +31,9 @@ requirements:
     - {{ posix }}coreutils         # [win]
     - {{ posix }}zip               # [win]
     - cross-r-base {{ r_base }}    # [build_platform != target_platform]
+    - r-rcpp                       # [build_platform != target_platform]
+    - r-progress                   # [build_platform != target_platform]
+    - r-stringr                    # [build_platform != target_platform]
   host:
     - r-base
     - r-rcpp
@@ -51,7 +54,6 @@ about:
   home: https://github.com/mschubert/narray
   license: Apache-2.0
   summary: Stacking arrays according to dimension names, subset-aware splitting and mapping of functions, intersecting along arbitrary dimensions, converting to and from data.frames, and many other helper functions.
-  license_family: APACHE
   license_file:
     - LICENSE
 
