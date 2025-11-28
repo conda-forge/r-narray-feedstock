@@ -1,4 +1,4 @@
-{% set version = "0.5.1" %}
+{% set version = "0.5.2" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,10 +9,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/narray_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/narray/narray_{{ version }}.tar.gz
-  sha256: 741cfc5e127e19590d5eafabe5b17ee75c5ffa4216f0357a61412d22a80bfd6e
+  sha256: fc888e22186e120e6e5d2024c14e25ebb3950364f4ce28b4bddabb6eee82599a
 
 build:
-  number: 5
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
